@@ -1,0 +1,44 @@
+group 'Spring_Gradle'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    repositories { jcenter() }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:1.5.9.RELEASE"
+        classpath 'org.springframework:springloaded:1.2.6.RELEASE'
+    }
+}
+
+apply plugin: 'idea'
+apply plugin: 'java'
+
+idea {
+    module {
+        inheritOutputDirs = false
+        outputDir = file("$buildDir/classes/main/")
+    }
+}
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.16.18'
+
+    compile group: 'org.springframework', name: 'spring-core', version: '4.3.12.RELEASE'
+    compile group: 'org.springframework', name: 'spring-beans', version: '4.3.12.RELEASE'
+    compile group: 'org.springframework', name: 'spring-context', version: '4.3.12.RELEASE'
+
+    // for firstannotations
+    compile group: 'org.springframework', name: 'spring-web', version: '4.3.12.RELEASE'
+    compile group: 'org.springframework', name: 'spring-webmvc', version: '4.3.12.RELEASE'
+    testCompile group: 'org.springframework', name: 'spring-test', version: '4.3.12.RELEASE'
+    compileOnly group: 'javax.servlet', name: 'javax.servlet-api', version: '3.1.0'
+    compile group: 'javax.servlet', name: 'jstl', version: '1.2'
+
+}

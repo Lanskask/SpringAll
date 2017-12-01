@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Application for a loan</title>
+</head>
+<body>
+    <h1>Application for a loan</h1>
+
+    <!--<form>
+        <h1>Form</h1>
+        <form action="#" th:action="@{/greeting_form}" th:object="${greeting}" method="post">
+            <p>Id: <input type="text" th:field="*{id}" /></p>
+            <p>Message: <input type="text" th:field="*{content}" /></p>
+            <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+        </form>
+    </form>-->
+
+    <!--<form action="#" th:action="@{/application_loan}" th:object="${User}" method="post">
+                &lt;!&ndash;<p>Id: <input type="text" th:field="*{id}" /></p>&ndash;&gt;
+                <p>amount: <input type="text" th:field="*{name}" /></p>
+                <p>termEnd: <input type="text" th:field="*{surname}" /></p>
+        </form>-->
+    <p th:text="'Contry ' + ${contry}"/>
+
+    <form>
+        <h1>Form</h1>
+        <form action="#" th:action="@{/application_loan}"
+              th:object="${loan}" method="post">
+            <!--<form action="#" th:action="@{/application_loan}"
+                    th:object="${user}" method="post">
+                <p>Id: <input type="text" th:field="*{id}" /></p>
+                <p>name: <input type="text" th:field="*{name}" /></p>
+                <p>surname: <input type="text" th:field="*{surname}" /></p>
+            </form>-->
+
+            <p>amount: <input type="text" th:field="*{amount}" /></p>
+            <p>termEnd: <input type="text" th:field="*{termEnd}" /></p>
+
+            <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+        </form>
+
+    </form>
+</body>
+</html>

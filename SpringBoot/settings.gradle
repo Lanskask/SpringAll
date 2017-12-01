@@ -1,0 +1,8 @@
+rootProject.name = 'SpringBoot'
+include 'firstxml'
+include 'secondannotations'
+include 'loanapp'
+include 'repoexp'
+include 'securing'
+include 'simpleweb'
+include 'sprbexp'

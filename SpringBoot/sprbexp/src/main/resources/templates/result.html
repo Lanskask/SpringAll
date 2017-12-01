@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Form Result</title>
+</head>
+<body>
+
+    <h1>Result</h1>
+
+    <p th:text="'id: ' + ${greeting.id}" />
+    <p th:text="'content: ' + ${greeting.content}" />
+    <a href="/greeting_form">Submit another message</a>
+
+    <table border="1">
+        <tbody>
+            <tr th:each="str: ${list_of_strings}">
+                <td th:text="${str.length()}" />
+                <td th:text="${str}" />
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
