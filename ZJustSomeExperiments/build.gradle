@@ -1,4 +1,4 @@
-group 'SpringAll'
+group 'Spring_Gradle'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'

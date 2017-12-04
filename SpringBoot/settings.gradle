@@ -6,3 +6,5 @@ include 'repoexp'
 include 'securing'
 include 'simpleweb'
 include 'sprbexp'
+include 'JustSomeExperiments'
+
