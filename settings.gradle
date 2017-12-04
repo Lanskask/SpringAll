@@ -1,2 +1,7 @@
 rootProject.name = 'SpringAll'
-
+include 'spring2-mvc-xml-Work'
+include 'spring4-mvc-gradle-annotation-hello-world-Work'
+include 'Spring4MvcAjaxHelloWorldExample'
+include 'SpringExample-DI-Work'
+include 'SpringGuru'
+include 'SpringSecurityJdbcApp-master'

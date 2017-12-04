@@ -8,7 +8,8 @@
 </head>
 <body>
 
-    <p th:text="#{message}">Welcome to our grocery store!</p>
+    <p th:text="${message}">Welcome to our grocery store!</p>
 
+    <div th:replace="footer :: copy"></div>
 </body>
 </html>
