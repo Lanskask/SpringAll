@@ -4,8 +4,9 @@ create user user1 with password 'password';
 
 create database fortest with owner = user1 encoding = 'UTF8';
 grant all on database fortest to user1;
+grant all ON ALL TABLES IN SCHEMA public to user1;
 
--- \connect fortest
+-- \c fortest
 
 -- Part 2
 create sequence hibernate_sequence
