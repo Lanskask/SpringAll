@@ -39,4 +39,18 @@ public class HomeController {
         return "users";
     }
 
+    @GetMapping("/login")
+    public String login(/*@ModelAttribute User user*/) {
+//        this.userRepository.save(user);
+        return "login";
+    }
+
+    @PostMapping("/login")
+    public String loginAuth(/*@ModelAttribute User user*/) {
+//        this.userRepository.save(user);
+        return "login";
+    }
+
+
+
 }
