@@ -5,7 +5,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class Simplewebtry1Application {
-
 	public static void main(String[] args) {
 		SpringApplication.run(Simplewebtry1Application.class, args);
 	}
