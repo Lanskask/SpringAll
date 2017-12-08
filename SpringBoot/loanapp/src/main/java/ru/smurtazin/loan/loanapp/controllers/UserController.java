@@ -49,13 +49,23 @@ public class UserController {
     public ResponseEntity<User> createUser(@RequestBody @Valid User user, BindingResult bResult) {
         if(bResult.hasErrors())
             return new ResponseEntity<>(user, HttpStatus.BAD_REQUEST);
+        User savedUser = userRepository.save(user);
+        return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
+    }
+
+    /*@ResponseStatus(HttpStatus.CREATED)
+    @ResponseBody
+    @PostMapping("")
+    public ResponseEntity<User> createUser(@RequestBody @Valid User user, BindingResult bResult) {
+        if(bResult.hasErrors())
+            return new ResponseEntity<>(user, HttpStatus.BAD_REQUEST);
 
         User savedUser = userRepository.save(user);
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.set("MyRespHead1", "Val1");
         responseHeaders.set("MyRespHead2", "Val2");
         return new ResponseEntity<>(savedUser, responseHeaders, HttpStatus.CREATED);
-    }
+    }*/
 
     @PutMapping(value = "/{id}")
     public @ResponseBody User updateUser(@PathVariable("id") Integer id, @RequestBody User user) {
