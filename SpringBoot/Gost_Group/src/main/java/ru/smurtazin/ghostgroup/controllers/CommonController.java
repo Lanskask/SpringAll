@@ -1,11 +1,11 @@
-package ru.smurtazin.loan.loanapp.controllers;
+package ru.smurtazin.ghostgroup.controllers;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import ru.smurtazin.loan.loanapp.exceptions.ResourceNotFoundException;
+import ru.smurtazin.ghostgroup.exceptions.ResourceNotFoundException;
 
 import javax.validation.Valid;
 

@@ -19,7 +19,7 @@ public class Loan {
     @Id
     @GeneratedValue
     @Column(name = "id", unique = true)
-    private Long id;
+    private Integer id;
 
     @Column(name = "amount")
     private Long amount;

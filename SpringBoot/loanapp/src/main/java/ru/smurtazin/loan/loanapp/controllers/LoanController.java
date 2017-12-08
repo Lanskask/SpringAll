@@ -2,7 +2,6 @@ package ru.smurtazin.loan.loanapp.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.Repository;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ru.smurtazin.loan.loanapp.models.Loan;
@@ -19,7 +18,7 @@ public class LoanController extends CommonController<Loan> {
 
     @PostConstruct
     public void init() {
-        super.setThisRepository((CrudRepository) repository);
+        super.setRepository((CrudRepository) repository);
     }
 
 }
