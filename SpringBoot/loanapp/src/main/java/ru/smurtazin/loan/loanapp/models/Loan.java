@@ -1,5 +1,7 @@
 package ru.smurtazin.loan.loanapp.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -9,6 +11,7 @@ import java.util.Date;
 
 @Entity
 @Table(name="t_loans")
+@JsonIgnoreProperties("user")
 @Setter @Getter
 @NoArgsConstructor
 public class Loan {

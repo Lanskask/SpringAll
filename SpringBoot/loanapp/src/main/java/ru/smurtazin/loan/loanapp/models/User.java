@@ -33,6 +33,6 @@ public class User {
     // TODO: i'm not sure it should be Cascade and Fetch
     @Column
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "id", referencedColumnName = "user_id")
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private List<Loan> loans;
 }
