@@ -11,19 +11,32 @@
 <div>Форма регистрации
     <form th:action="@{/registration}"
           th:object="${user}" method="post">
-        <div>
+
+        <p th:if="${#fields.hasErrors('global')}"
+           th:errors="*{global}"
+            th:class="text-red">
+            Неверные данные
+        </p>
+
+        <div th:classappend="${#fields.hasErrors('name')} ? 'has-error'">
             <label>Имя</label>
             <input type="text" th:field="*{name}"/>
+            <p th:if="${#fields.hasErrors('name')}"
+                th:errors="*{name}">Неверн имя</p>
         </div>
 
-        <div>
+        <div th:classappend="${#fields.hasErrors('email')} ? 'has-error'">
             <label>Email</label>
             <input type="text" th:field="*{email}"/>
+            <p th:if="${#fields.hasErrors('email')}"
+               th:errors="*{email}">Неверн email</p>
         </div>
 
-        <div>
+        <div th:classappend="${#fields.hasErrors('password')} ? 'has-error'">
             <label>Password</label>
             <input type="text" th:field="*{password}"/>
+            <p th:if="${#fields.hasErrors('password')}"
+               th:errors="*{password}">Неверн пароль</p>
         </div>
 
         <div>

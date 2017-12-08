@@ -26,12 +26,13 @@ create table t_users (
 
 drop table if EXISTS t_loans;
 create table t_loans (
-id bigint unique not null default nextval('hibernate_sequence') primary key,
-amount bigint,
-term_end timestamp,
+  id bigint unique not null default nextval('hibernate_sequence') primary key,
+  amount bigint,
+  term_end timestamp,
 
-user_id  BIGINT REFERENCES t_users(id)
+  user_id  BIGINT REFERENCES t_users(id)
 );
+-- alter table t_loans drop CONSTRAINT IF EXISTS t_loan_user_id_fkey;
 
 -- Part 4 Inserting some data
 -- Part 4.1
