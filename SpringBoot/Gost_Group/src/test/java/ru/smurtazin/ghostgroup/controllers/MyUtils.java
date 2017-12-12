@@ -1,6 +1,7 @@
 package ru.smurtazin.ghostgroup.controllers;
 
 import ru.smurtazin.ghostgroup.model.Department;
+import ru.smurtazin.ghostgroup.model.Employee;
 import ru.smurtazin.ghostgroup.model.Order;
 
 import java.util.Calendar;
@@ -20,6 +21,21 @@ public class MyUtils {
         item.setName("Order N Uno");
         item.setOrderDate(new Date());
         item.setTermEnd(MyUtils.addDays(new Date(), 2));
+        return item;
+    }
+
+    public static Employee fakeEmployee() {
+        Employee item = new Employee();
+        item.setFullName("Full Empl Name1");
+//        item.setDepartment(2);
+//        item.setOrders(3);
+        return item;
+    }
+
+    public static Department fakeDepartment() {
+        Department item = new Department();
+        item.setType("New Depart Type 1");
+//        item.setOrders(3);
         return item;
     }
 }

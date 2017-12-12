@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
-import ru.smurtazin.ghostgroup.model.Order;
+import ru.smurtazin.ghostgroup.model.Employee;
 
 import java.util.Arrays;
 import java.util.List;
@@ -17,39 +17,39 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
-@Description(value = "Test for OrdersController")
+@Description(value = "Test for EmployeesController")
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
-public class OrderRestTests {
+public class EmployeeRestTests {
 
 	private static final String ROOT_URL = "http://localhost:8081";
-	private static final String concrPath = "orders";
+	private static final String concrPath = "employees";
 	RestTemplate restTemplate = new RestTemplate();
 
 	@Test
 	public void testGetAllItems() {
-		ResponseEntity<Order[]> responseEntity =
-				restTemplate.getForEntity(ROOT_URL + "/" + concrPath, Order[].class);
-		List<Order> items = Arrays.asList(responseEntity.getBody());
+		ResponseEntity<Employee[]> responseEntity =
+				restTemplate.getForEntity(ROOT_URL + "/" + concrPath, Employee[].class);
+		List<Employee> items = Arrays.asList(responseEntity.getBody());
 		assertNotNull(items);
 	}
 
 	@Test
 	public void testGetItemById() {
-		Order item = restTemplate.getForObject(ROOT_URL + "/" + concrPath + "/1", Order.class);
+		Employee item = restTemplate.getForObject(ROOT_URL + "/" + concrPath + "/1", Employee.class);
 		assertNotNull(item);
 	}
 
 	@Test
 	public void testCreateItem() {
-		ResponseEntity<Order[]> beforeResponseEntity =
-				restTemplate.getForEntity(ROOT_URL + "/" + concrPath, Order[].class);
+		ResponseEntity<Employee[]> beforeResponseEntity =
+				restTemplate.getForEntity(ROOT_URL + "/" + concrPath, Employee[].class);
 
-		Order item = MyUtils.fakeOrder();
-		ResponseEntity<Order> postResponse =
-				restTemplate.postForEntity(ROOT_URL + "/" + concrPath, item, Order.class);
+		Employee item = MyUtils.fakeEmployee();
+		ResponseEntity<Employee> postResponse =
+				restTemplate.postForEntity(ROOT_URL + "/" + concrPath, item, Employee.class);
 
-		ResponseEntity<Order[]> afterResponseEntity =
-				restTemplate.getForEntity(ROOT_URL + "/" + concrPath, Order[].class);
+		ResponseEntity<Employee[]> afterResponseEntity =
+				restTemplate.getForEntity(ROOT_URL + "/" + concrPath, Employee[].class);
 		assertNotNull(postResponse);
 		assertNotNull(postResponse.getBody());
 		assertTrue(beforeResponseEntity.getBody().length < afterResponseEntity.getBody().length );
@@ -58,18 +58,18 @@ public class OrderRestTests {
 	@Test
 	public void testUpdateItem() {
 		int id = 1;
-		Order item = restTemplate.
-				getForObject(ROOT_URL + "/" + concrPath + "/" + id, Order.class);
-		item.setName("NEW NEW NAME of Order");
+		Employee item = restTemplate.
+				getForObject(ROOT_URL + "/" + concrPath + "/" + id, Employee.class);
+		item.setFullName("Test fullNme Employee");
 		/*Department department = restTemplate.
 				getForObject(ROOT_URL + "/departments/" + id, Department.class);
 		item.setDepartment(department);
-		item.setOrderDate(new Date());
+		item.setEmployeeDate(new Date());
 		item.setTermEnd(MyUtils.addDays(new Date(), 2));*/
 
 		restTemplate.put(ROOT_URL + "/" + concrPath + "/" + id, item);
 
-		Order updatedItem = restTemplate.getForObject(ROOT_URL + "/" + concrPath + "/" + id, Order.class);
+		Employee updatedItem = restTemplate.getForObject(ROOT_URL + "/" + concrPath + "/" + id, Employee.class);
 		assertEquals(item, updatedItem); // TODO: Is it right written
 		assertNotNull(updatedItem);
 	}
@@ -77,22 +77,22 @@ public class OrderRestTests {
 	@Test
 	public void testDeleteItem() {
 		int id = 20000;
-		Order item = MyUtils.fakeOrder();
-		ResponseEntity<Order> postResponse =
-				restTemplate.postForEntity(ROOT_URL + "/" + concrPath, item, Order.class);
+		Employee item = MyUtils.fakeEmployee();
+		ResponseEntity<Employee> postResponse =
+				restTemplate.postForEntity(ROOT_URL + "/" + concrPath, item, Employee.class);
 
-		ResponseEntity<Order[]> responseEntity =
-				restTemplate.getForEntity(ROOT_URL + "/" + concrPath, Order[].class);
-		List<Order> items = Arrays.asList(responseEntity.getBody());
+		ResponseEntity<Employee[]> responseEntity =
+				restTemplate.getForEntity(ROOT_URL + "/" + concrPath, Employee[].class);
+		List<Employee> items = Arrays.asList(responseEntity.getBody());
 
 		Integer lastAdded = items.get(items.size() - 1).getId();
-		Order item2 = restTemplate.getForObject(ROOT_URL + "/" + concrPath + "/" + lastAdded, Order.class);
+		Employee item2 = restTemplate.getForObject(ROOT_URL + "/" + concrPath + "/" + lastAdded, Employee.class);
 		assertNotNull(item2);
 
 		restTemplate.delete(ROOT_URL + "/" + concrPath + "/" + lastAdded);
 
 		try {
-			item = restTemplate.getForObject(ROOT_URL + "/" + concrPath + "/" + lastAdded, Order.class);
+			item = restTemplate.getForObject(ROOT_URL + "/" + concrPath + "/" + lastAdded, Employee.class);
 		} catch (final HttpClientErrorException e) {
 			assertEquals(e.getStatusCode(), HttpStatus.NOT_FOUND);
 		}

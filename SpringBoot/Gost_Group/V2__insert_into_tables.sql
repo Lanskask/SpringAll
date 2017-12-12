@@ -1,7 +1,7 @@
 TRUNCATE TABLE departments CASCADE;
 insert into departments(type) VALUES
   ('cushioned'), ('store'), ('office');
-
+-- insert into departments(id, type) VALUES (1, 'cushioned');
 -- =========
 TRUNCATE TABLE employees CASCADE;
 insert into employees(full_name, depart_id) VALUES

@@ -51,9 +51,11 @@ public class CommonController<T> {
     @ResponseBody
     public void deleteItem(@PathVariable("id") Integer id) {
         T item = repository.findOne(id);
-        if(item.equals(null))
+//        if (item.equals(null)) {
+        if (item == null) {
             throw new ResourceNotFoundException("Item with id " + id + " not found.");
-        else repository.delete(item);
+        } else {
+            repository.delete(item);
+        }
     }
-
 }

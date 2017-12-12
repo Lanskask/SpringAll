@@ -1,10 +1,12 @@
+/*employees_depart_id_fkey
+alter table drop constraint if exist departments_pkey;*/
 -- ======== For Ghost Group ======================
-drop type IF EXISTS furniture_type CASCADE;
+/*drop type IF EXISTS furniture_type CASCADE;
 CREATE TYPE furniture_type AS ENUM (
   'cushioned',
   'store',
   'office'
-);
+);*/
 
 /*drop table if EXISTS departments_enum CASCADE;
 create table departments_enum (
