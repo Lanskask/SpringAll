@@ -37,3 +37,13 @@ insert into dept values
   (20, 'RESEARCH', 'DALLAS'),
   (30, 'SALES', 'CHICAGO'),
   (40, 'OPERATIONS', 'BOSTON');
+
+create table emp_bonus (
+  EMPNO integer,
+  RECEIVED timestamp,
+  TYPE integer
+);
+insert into emp_bonus values
+  (7369,  '14-MAR-2005', 1),
+  (7900,  '14-MAR-2005', 2),
+  (7788,  '14-MAR-2005', 3);
