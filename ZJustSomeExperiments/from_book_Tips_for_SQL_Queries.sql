@@ -18,6 +18,8 @@ WHERE deptno not IN (SELECT  deptno from emp);
 
 -- ============ for numbers
 select empno, avg(deptno) from emp GROUP BY empno;
+select * from emp;
+select count(job), job, ename from emp GROUP BY job, ename;
 
 select deptno, sum(sal) from emp GROUP BY deptno;
 
