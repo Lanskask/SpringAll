@@ -1,5 +1,5 @@
+# ======= Files
 *.iml
-classes/
 *.class
 .classpath
 gradlew
@@ -7,15 +7,18 @@ gradlew.bat
 .project
 *.txt
 *.war
-.idea
-**/.gradle/*
-.git
-.settings/
-out/
-**/target/*
-**/build/*
-**/gradle/*
 My_DB_Project_Description.txt
-!/Part_2_OOP/TrakerToIDEA/OtherFiles
 *.sublime-project
 *.sublime-workspace
+
+# ====== Folders
+classes/
+.idea/
+.git/
+.gradle/
+.settings/
+out/
+target/
+build/
+gradle/
+!/Part_2_OOP/TrakerToIDEA/OtherFiles
