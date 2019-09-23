@@ -7,7 +7,6 @@ gradlew.bat
 .project
 *.txt
 *.war
-My_DB_Project_Description.txt
 *.sublime-project
 *.sublime-workspace
 
@@ -21,4 +20,3 @@ out/
 target/
 build/
 gradle/
-!/Part_2_OOP/TrakerToIDEA/OtherFiles
